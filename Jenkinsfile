@@ -18,7 +18,7 @@ pipeline {
         }
         stage('aws deployment'){
           steps{
-          deploy adapters: [tomcat9(credentialsId: 'tomcatCredentials', path: '', url: 'https://3.15.0.139:8088')], contextPath: 'newAws', war: 'war'
+          deploy adapters: [tomcat9(credentialsId: 'tomcatCredentials', path: '', url: 'https://3.15.0.139:8088')], contextPath: 'new', onFailure: false, war: 'war'
         }
         }
     }
