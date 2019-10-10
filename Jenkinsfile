@@ -16,6 +16,11 @@ pipeline {
                 }
             }
         }
+         stage('Deployment to AWS'){
+            steps{
+            deploy adapters: [tomcat8(credentialsId: 'tomcatCredentials', path: '', url: 'http://3.15.0.139:8088/')], contextPath: 'Registration', onFailure: false, war: '**/target/*.war'
+            }
+        }
        
     }
 }
